@@ -50,16 +50,31 @@ public class ProductoServicio {
         listaProductos.add(producto);
     }
 
+    public void encontrarProducto(String codigo) {
+        for(Producto producto : listaProductos) {
+            if(codigo.equals(producto.getCodigo())) {
+                System.out.println("1.-El nombre del articulo actual es: " + producto.getArticulo());
+                System.out.println("2.-El código del producto: " + producto.getCodigo());
+                System.out.println("3.-El color del producto: " + producto.getColor());
+                System.out.println("4.-La descripción del producto: " + producto.getDescripcion());
+                System.out.println("5.-La marca del producto: " + producto.getMarca());
+                System.out.println("6.-El precio del producto: " + producto.getPrecio());
+                System.out.println("7.-La talla del producto: " + producto.getTalla());
+                System.out.println();
+            }
+        }
+    }
     public void editarProducto() {
         System.out.println("Ingrese código del producto que quiere editar: ");
         String codigo = sc.nextLine();
 
+        encontrarProducto(codigo);
         boolean productoEncontrado = false;
 
         for(Producto producto : listaProductos) {
             if (producto.getCodigo().equals(codigo)) {
                 productoEncontrado = true;
-                  listarProductos();
+
 
                 System.out.println("Ingrese la opción a editar de los datos del producto: ");
                 int opcion = sc.nextInt();
@@ -98,6 +113,10 @@ public class ProductoServicio {
                 }
             }
         }
+
+        encontrarProducto(codigo);
+        System.out.println();
+
         if(!productoEncontrado)
             System.out.println("Producto no existe");
     }

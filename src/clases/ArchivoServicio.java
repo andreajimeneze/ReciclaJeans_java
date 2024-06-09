@@ -15,12 +15,13 @@ public class ArchivoServicio {
             while((line = br.readLine()) != null) {
                 String [] dato = line.split(",");
                 Producto producto = new Producto(dato[0], dato[1], dato[2], dato[3], dato[4], dato[5], dato[6]);
-                System.out.println(producto);
+//                System.out.println(producto);
 
                 productoServicio.agregarProductos(producto);
                 System.out.println(productoServicio.getListaProductos());
             }
             System.out.println("Datos agregados a la lista correctamente");
+            System.out.println();
 
         } catch(IOException e) {
             e.printStackTrace();
